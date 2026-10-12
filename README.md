@@ -19,7 +19,6 @@ Aligned ECG, PPG, and PCG waveform segments are stacked into a three-channel inp
 The script includes:
 
 - **Data alignment:** Matches samples across modalities using `(basekey, segment)` and retains their intersection.
-- **Data partitioning:** Uses `GroupShuffleSplit` to assign recording groups to training, validation, and test sets with target proportions of 70%, 15%, and 15%. All segments sharing the same basekey remain in the same subset.
 - **Multitask training:** Optimizes the sum of three weighted cross-entropy losses, with class weights estimated from the training set.
 - **Model selection:** Selects the best checkpoint and performs early stopping using the mean validation macro-F1 across the three tasks.
 - **Evaluation and feature export:** Saves evaluation metrics, predictions, confusion matrices, classification reports, and shared deep features for the validation and test sets.
